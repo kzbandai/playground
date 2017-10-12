@@ -1,3 +1,3 @@
 all:
-	protoc --proto_path=src --php_out=build/gen src/example.proto
-	php test.php | hexdump -C
+	protoc --proto_path=.. --php_out=build/gen ../example.proto
+	php src/example.php | hexdump -C

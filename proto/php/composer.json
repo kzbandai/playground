@@ -1,0 +1,18 @@
+{
+    "name": "bandai/php",
+    "authors": [
+        {
+            "name": "kzbandai",
+            "email": "nisigin@gmail.com"
+        }
+    ],
+    "require": {
+        "google/protobuf": "^3.4"
+    },
+		"autoload": {
+				"psr-4": {
+						"Foo\\": "build/gen/Foo",
+						"GPBMetadata\\": "build/gen/GPBMetadata"
+				}
+		}
+}

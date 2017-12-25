@@ -30,6 +30,12 @@ object HelloWorld {
 
     println(append_ten(NUM))
     println(append_eight(NUM))
+
+    val user = new User("Tom", append_eight(3))
+    println(user.name)
+    println(user.age)
+    user.how_old
+    user.agree
   }
 
   def append_ten(num: Int): Int = {
@@ -37,4 +43,16 @@ object HelloWorld {
   }
 
   def append_eight(num: Int): Int = num + 8
+
+  class User(_name: String, _age: Int) {
+    val name = _name
+    val age = _age
+
+    def agree = println("I'm " + name)
+
+    def how_old = println("I'm " + fudge_the_count)
+
+    private def fudge_the_count: Int = age - 5
+  }
+
 }

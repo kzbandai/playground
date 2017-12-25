@@ -27,5 +27,14 @@ object HelloWorld {
       case 2 => println("two")
       case _ => println("other")
     }
+
+    println(append_ten(NUM))
+    println(append_eight(NUM))
   }
+
+  def append_ten(num: Int): Int = {
+    num + 10
+  }
+
+  def append_eight(num: Int): Int = num + 8
 }

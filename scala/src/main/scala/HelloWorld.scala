@@ -1,4 +1,4 @@
-object HelloWorld {
+object HelloWorld extends TestTrait {
   var num: Int = 1
   var str: String = "start"
   var short: Short = _ // initial value
@@ -36,6 +36,8 @@ object HelloWorld {
     println(user.age)
     user.how_old
     user.agree
+
+    hello
   }
 
   def append_ten(num: Int): Int = {
@@ -55,4 +57,8 @@ object HelloWorld {
     private def fudge_the_count: Int = age - 5
   }
 
+}
+
+trait TestTrait {
+  def hello = println("hello trait !")
 }

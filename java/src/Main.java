@@ -39,4 +39,9 @@ public class Main {
 
         return max;
     }
+
+    // https://techdevguide.withgoogle.com/paths/foundational/withoutstring-problem-strings-base-remove-return
+    public String withoutString(String base, String remove) {
+        return base.replace(remove.toUpperCase(), "").replace(remove.toLowerCase(), "").replace(remove, "");
+    }
 }

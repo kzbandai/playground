@@ -5,6 +5,35 @@ public class Main {
         Main.stringSplosion("abc");
         Main.stringSplosion("There");
         Main.stringSplosion("Kitten");
+
+        int u;
+        u = Main.sumNumbers("aa11b33");
+        System.out.println(u);
+        u = Main.sumNumbers("aa11b2");
+        System.out.println(u);
+    }
+
+    // https://techdevguide.withgoogle.com/paths/foundational/subnumbers-problem-string-return-sum
+    private static int sumNumbers(String str) {
+        char[] chars = str.toCharArray();
+
+        int res = 0;
+        String s = "";
+        for (char ch : chars) {
+            if (Character.isDigit(ch)) {
+                s = s + String.valueOf(ch);
+                System.out.println(s);
+            } else if (!Character.isDigit(ch) && s.toCharArray().length > 0) {
+                res += Integer.parseInt(s);
+                s = "";
+            }
+        }
+
+        if (s.toCharArray().length > 0) {
+            res += Integer.parseInt(s);
+        }
+
+        return res;
     }
 
     private static void stringSplosion(String str) {

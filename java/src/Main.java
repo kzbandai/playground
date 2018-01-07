@@ -19,4 +19,24 @@ public class Main {
 
         System.out.println(res);
     }
+
+    // https://techdevguide.withgoogle.com/paths/foundational/maxspan-problem-return-largest-span-array
+    // https://github.com/mirandaio/codingbat/blob/master/java/array-3/maxSpan.java
+    public int maxSpan(int[] nums) {
+        int max = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            int j = nums.length - 1;
+
+            while (nums[i] != nums[j])
+                j--;
+
+            int span = j - i + 1;
+
+            if (span > max)
+                max = span;
+        }
+
+        return max;
+    }
 }

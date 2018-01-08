@@ -1,16 +1,19 @@
 //// http://codingbat.com/prob/p117334
 public class Main {
     public static void main(String[] args) {
-        Main.stringSplosion("Code");
-        Main.stringSplosion("abc");
-        Main.stringSplosion("There");
-        Main.stringSplosion("Kitten");
+//        Main.stringSplosion("Code");
+//        Main.stringSplosion("abc");
+//        Main.stringSplosion("There");
+//        Main.stringSplosion("Kitten");
+//
+//        int u;
+//        u = Main.sumNumbers("aa11b33");
+//        System.out.println(u);
+//        u = Main.sumNumbers("aa11b2");
+//        System.out.println(u);
 
-        int u;
-        u = Main.sumNumbers("aa11b33");
-        System.out.println(u);
-        u = Main.sumNumbers("aa11b2");
-        System.out.println(u);
+        HangmanLexicon hang = new HangmanLexicon();
+        System.out.println(hang.getWordCount());
     }
 
     // http://codingbat.com/prob/p158767

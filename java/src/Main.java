@@ -13,6 +13,25 @@ public class Main {
         System.out.println(u);
     }
 
+    // http://codingbat.com/prob/p158767
+    // https://techdevguide.withgoogle.com/paths/foundational/canbalance-problem-arrays-non-empty
+    private static boolean canBalance(int[] nums) {
+        int total = 0;
+        for (int i = 0; i < nums.length; i++) {
+            total += nums[i];
+        }
+
+        int sub = 0;
+        for (int k = 0; k < nums.length; k++) {
+            sub += nums[k];
+            if (total - sub == sub) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     // https://techdevguide.withgoogle.com/paths/foundational/subnumbers-problem-string-return-sum
     private static int sumNumbers(String str) {
         char[] chars = str.toCharArray();

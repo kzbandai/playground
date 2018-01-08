@@ -1,4 +1,7 @@
-//// http://codingbat.com/prob/p117334
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Main {
     public static void main(String[] args) {
 //        Main.stringSplosion("Code");
@@ -12,8 +15,25 @@ public class Main {
 //        u = Main.sumNumbers("aa11b2");
 //        System.out.println(u);
 
+        Main.hangman();
+    }
+
+    private static void hangman() {
         HangmanLexicon hang = new HangmanLexicon();
-        System.out.println(hang.getWordCount());
+        String str;
+
+        // https://www.upken.jp/kb/java_wait_console.html
+        // https://qiita.com/daisy1754/items/8024a5bc0934089e7f28
+        for (; ; ) {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            try {
+                str = br.readLine();
+                System.out.println("input: '" + str + "'");
+            } catch (IOException e) {
+                System.out.println("入力エラー:" + e.getMessage());
+                break;
+            }
+        }
     }
 
     // http://codingbat.com/prob/p158767
@@ -58,6 +78,7 @@ public class Main {
         return res;
     }
 
+    // http://codingbat.com/prob/p117334
     private static void stringSplosion(String str) {
         String[] chars = str.split("");
 

@@ -2,14 +2,13 @@
 
 interface HelperInterface
 {
-    public function __invoke();
 }
 
 class HogeAndFuga implements HelperInterface
 {
-    public function __invoke()
+    public function __invoke(array $hoge = ['hoge'])
     {
-        echo 'hoge';
+        var_dump($hoge);
     }
 }
 
@@ -17,14 +16,15 @@ trait Hoge
 {
     public function __call($name, $arguments)
     {
-        $array = mb_split('_', $name);
-        $str = '';
-        foreach ($array as $s) {
-            $str .= ucfirst($s);
+        $strings = mb_split('_', $name);
+        $class_name = '';
+        foreach ($strings as $s) {
+            $class_name .= ucfirst($s);
         }
 
-        $do = new $str;
-        $do();
+        if (($c = new $class_name) instanceof HelperInterface) {
+            (new $c)($arguments);
+        }
     }
 }
 
@@ -34,6 +34,12 @@ trait Hoge
 
     public function main()
     {
-        $this->hoge_and_fuga();
+        $this->hoge_and_fuga('aaa');
     }
 })->main();
+
+(new class()
+{
+    use Hoge;
+}
+)->hoge_and_fuga('bbb');

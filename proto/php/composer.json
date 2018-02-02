@@ -11,8 +11,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Foo\\": "build/gen/Foo",
-      "GPBMetadata\\": "build/gen/GPBMetadata"
+      "Foo\\": "build/pb/Foo",
+      "GPBMetadata\\": "build/pb/GPBMetadata"
     }
   }
 }

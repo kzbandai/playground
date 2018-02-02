@@ -2,15 +2,15 @@ package main
 
 import (
 	"fmt"
-	"strconv"
+	p "github.com/golang/protobuf/proto"
+	pb "github.com/kzbandai/playground/proto/go/build/pb"
 )
 
 func main() {
-	var stdin string
-	in, err := fmt.Scan(&stdin)
-	if err != nil {
-		fmt.Printf("error!")
+	sr := &pb.SearchRequest{
+		PageNumber: *p.Int32(100),
+		Query:      *p.String("hogehoge fugafuga"),
 	}
 
-	fmt.Printf(strconv.Itoa(in))
+	fmt.Print(sr.String())
 }

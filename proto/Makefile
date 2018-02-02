@@ -18,4 +18,4 @@ php:
 .PHONY: go
 go:
 	cd ./go && make
-	echo 'go build'
+	./go/main | hexdump -C

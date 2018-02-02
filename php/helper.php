@@ -14,7 +14,7 @@ class HogeAndFuga implements HelperInterface
 
 trait Hoge
 {
-    public function __call($name, $arguments)
+    public function __call(string $name, array $arguments)
     {
         $strings = mb_split('_', $name);
         $class_name = '';
@@ -41,5 +41,4 @@ trait Hoge
 (new class()
 {
     use Hoge;
-}
-)->hoge_and_fuga('bbb');
+})->hoge_and_fuga('bbb');

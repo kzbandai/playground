@@ -3,12 +3,12 @@ all: dir proto php go
 
 .PHONY: dir
 dir:
-	mkdir -p ./php/build/gen ./go/build/gen
+	mkdir -p ./php/build/pb ./go/build/pb
 
 .PHONY: proto
 proto:
-	protoc --proto_path=./ --php_out=php/build/gen ./example.proto
-	protoc --proto_path=./ --go_out=go/build/gen ./example.proto
+	protoc --proto_path=./ --php_out=php/build/pb ./example.proto
+	protoc --proto_path=./ --go_out=go/build/pb ./example.proto
 
 .PHONY: php
 php:

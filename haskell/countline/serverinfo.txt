@@ -1,0 +1,21 @@
+$ python -m SimpleHTTPServer
+=>localhost:8000
+sencha touch用、Desktopで起動
+localhost:8000/<name>　でアクセス
+
+$ python bmi1.py
+ファイルの末尾にrunが記述してあるファイルを起動する（同時にサーバーが立つ）
+
+$ grunt
+0.0.0.0:9000
+localhost:9000
+=>grunt用
+
+$ gulp
+portはgulpfileによって変えられる
+
+$rails server
+rails用、portは3000
+
+$rails console , rails c
+railsの対話用

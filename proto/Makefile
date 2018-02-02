@@ -1,5 +1,9 @@
-all: proto php go
+all: dir proto php go
 	@echo 'done'
+
+.PHONY: dir
+dir:
+	mkdir -p ./php/build/gen ./go/build/gen
 
 .PHONY: proto
 proto:
@@ -8,8 +12,10 @@ proto:
 
 .PHONY: php
 php:
+	cd ./php && composer install
 	php php/src/example.php | hexdump -C
 
 .PHONY: go
 go:
-	@echo 'go build'
+	cd ./go && make
+	echo 'go build'

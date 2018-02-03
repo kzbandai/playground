@@ -10,7 +10,7 @@ class HelperTraitException extends \Exception
 
 class HogeAndFuga implements HelperInterface
 {
-    public function __invoke(array $hoge = ['hoge'])
+    public function __invoke(string $hoge)
     {
         var_dump($hoge);
     }

@@ -1,12 +1,19 @@
 syntax = "proto3";
 
 package foo.bar;
-message MyMessage {}
+message MyMessage {
+}
 
-message Foo {}
+message Foo {
+}
 
 message SearchRequest {
-	string query = 1;
-	int32 page_number = 2;
-	int32 result_per_page = 3;
+    string query = 1;
+    int32 page_number = 2;
+    int32 result_per_page = 3;
+
+    int32 old_number = 4 [deprecated=true];
+    int32 new_number = 5;
+    reserved  6;
+    int32 newest_number = 7;
 }

@@ -131,4 +131,29 @@ public class Main {
 
         return res;
     }
+
+    // http://codingbat.com/prob/p294185
+    // https://techdevguide.withgoogle.com/paths/foundational/interpreter-problem-for-java
+    public int interpret(int value, String[] commands, int[] args) {
+        for (int i = 0; i < commands.length; i++) {
+            switch (commands[i]) {
+                case "+":
+                    value = value + args[i];
+                    break;
+                case "-":
+                    value = value - args[i];
+                    break;
+                case "*":
+                    value = value * args[i];
+                    break;
+                case "/":
+                    value = value / args[i];
+                    break;
+                default:
+                    return -1;
+            }
+        }
+
+        return value;
+    }
 }

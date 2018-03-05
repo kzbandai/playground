@@ -95,4 +95,40 @@ public class Main {
     public String withoutString(String base, String remove) {
         return base.replace(remove.toUpperCase(), "").replace(remove.toLowerCase(), "").replace(remove, "");
     }
+
+    // http://codingbat.com/prob/p262890
+    // https://techdevguide.withgoogle.com/paths/foundational/array-sort-problem-sorted-values
+    int[] sort(int[] a) {
+        int size = a.length;
+        if (size == 0 || size == 1) {
+            return a;
+        }
+
+        int[] tmp = new int[size];
+        int tmp_v;
+        int res_size = 0;
+
+        for (int i = 0; i < size; i++) {
+            tmp_v = a[i];
+            if (i == 0) {
+                tmp[res_size] = tmp_v;
+                res_size++;
+                continue;
+            }
+
+            if (tmp[res_size - 1] == tmp_v) {
+                continue;
+            }
+
+            tmp[res_size] = tmp_v;
+            res_size++;
+        }
+
+        int[] res = new int[res_size];
+        for (int k = 0; k < res_size; k++) {
+            res[k] = tmp[k];
+        }
+
+        return res;
+    }
 }

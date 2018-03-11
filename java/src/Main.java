@@ -191,4 +191,20 @@ public class Main {
 
         return result;
     }
+
+    // http://codingbat.com/prob/p126332
+    // https://techdevguide.withgoogle.com/paths/foundational/pairs-problem-classic-algorithm-hard/#!
+    public Map<String, String> pairs(String[] strings) {
+        ArrayList<String> tmp = new ArrayList<>();
+        for (int i = 0; i < strings.length; i++) {
+            tmp.add(strings[i]);
+        }
+
+        Map<String, String> result = new HashMap<>();
+        for (int s = 0; s < tmp.size(); s++) {
+            result.put(String.valueOf(tmp.get(s).charAt(0)), String.valueOf(tmp.get(s).charAt(tmp.get(s).length() - 1)));
+        }
+
+        return result;
+    }
 }

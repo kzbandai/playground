@@ -156,4 +156,23 @@ public class Main {
 
         return value;
     }
+
+    // http://codingbat.com/prob/p152303
+    // https://techdevguide.withgoogle.com/paths/foundational/word-zero-problem-warmup/#!
+    public Map<String, Integer> word0(String[] strings) {
+        ArrayList<String> tmp = new ArrayList<>();
+        for (int i = 0; i < strings.length; i++) {
+            tmp.add(strings[i]);
+        }
+
+        Map<String, Integer> result = new HashMap<>();
+        for (int s = 0; s < tmp.size(); s++) {
+            result.put(tmp.get(s), 0);
+        }
+
+        Object[] mapKey = result.keySet().toArray();
+        Arrays.sort(mapKey);
+
+        return result;
+    }
 }

@@ -285,4 +285,16 @@ public class Main {
 
         return 0;
     }
+
+    // http://codingbat.com/prob/p198700
+    // https://techdevguide.withgoogle.com/paths/foundational/evenlyspaced-problem-medium/#!
+    public boolean evenlySpaced(int a, int b, int c) {
+        boolean res_a = (a + b + c) % 3 == 0;
+        if (!res_a) {
+            return false;
+        }
+
+        int tmp = (a + b + c) / 3;
+        return tmp == a || tmp == b || tmp == c;
+    }
 }

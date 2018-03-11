@@ -251,4 +251,38 @@ public class Main {
 
         return result;
     }
+
+    // http://codingbat.com/prob/p117019
+    // https://techdevguide.withgoogle.com/paths/foundational/software-debugging-warmup/#!
+    public int blackjack(int a, int b) {
+        if (21 < a && 21 < b) {
+            return 0;
+        }
+
+        if (a == b) {
+            return a;
+        }
+
+        if (a == 21 || b == 21) {
+            return 21;
+        }
+
+        if (a > 21) {
+            return b;
+        }
+
+        if (b > 21) {
+            return a;
+        }
+
+        if (a < b) {
+            return b;
+        }
+
+        if (b < a) {
+            return a;
+        }
+
+        return 0;
+    }
 }

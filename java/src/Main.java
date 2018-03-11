@@ -175,4 +175,20 @@ public class Main {
 
         return result;
     }
+
+    // http://codingbat.com/prob/p125327
+    // https://techdevguide.withgoogle.com/paths/foundational/wordlen-problems-array-strings-medium/#!
+    public Map<String, Integer> wordLen(String[] strings) {
+        ArrayList<String> tmp = new ArrayList<>();
+        for (int i = 0; i < strings.length; i++) {
+            tmp.add(strings[i]);
+        }
+
+        Map<String, Integer> result = new HashMap<>();
+        for (int s = 0; s < tmp.size(); s++) {
+            result.put(tmp.get(s), tmp.get(s).length());
+        }
+
+        return result;
+    }
 }

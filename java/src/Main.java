@@ -230,4 +230,25 @@ public class Main {
 
         return result;
     }
+
+    // http://codingbat.com/prob/p238573
+    // https://techdevguide.withgoogle.com/paths/foundational/encoder-problem-hard/#!
+    public String[] encoder(String[] raw, String[] code_words) {
+        String[] tmp = raw;
+        Map<String, String> hashMap = new HashMap<>();
+        for (int i = 0; i < raw.length; i++) {
+            String key = raw[i];
+            if (hashMap.containsKey(key)) {
+                continue;
+            }
+            hashMap.put(key, code_words[i]);
+        }
+
+        String[] result = new String[raw.length];
+        for (int s = 0; s < tmp.length; s++) {
+            result[s] = hashMap.get(tmp[s]);
+        }
+
+        return result;
+    }
 }

@@ -207,4 +207,27 @@ public class Main {
 
         return result;
     }
+
+    // http://codingbat.com/prob/p117630
+    // https://techdevguide.withgoogle.com/paths/foundational/wordcount-problem-classic-algorithm-hard/#!
+    public Map<String, Integer> wordCount(String[] strings) {
+        ArrayList<String> tmp = new ArrayList<>();
+        for (int i = 0; i < strings.length; i++) {
+            tmp.add(strings[i]);
+        }
+
+        Map<String, Integer> result = new HashMap<>();
+        for (int s = 0; s < tmp.size(); s++) {
+            String key = tmp.get(s);
+            if (result.containsKey(key)) {
+                int v = result.get(key);
+                v++;
+                result.put(key, v);
+            } else {
+                result.put(tmp.get(s), 1);
+            }
+        }
+
+        return result;
+    }
 }

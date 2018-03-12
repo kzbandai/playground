@@ -297,4 +297,25 @@ public class Main {
         int tmp = (a + b + c) / 3;
         return tmp == a || tmp == b || tmp == c;
     }
+
+    // http://codingbat.com/prob/p183562
+    // https://techdevguide.withgoogle.com/paths/foundational/makebricks-problem/#!
+    public boolean makeBricks(int small, int big, int goal) {
+        int num_a = big * 5;
+        if (num_a < goal) {
+            return small + num_a >= goal;
+        }
+
+        if (num_a == goal) {
+            return true;
+        }
+
+        if (num_a > goal) {
+            int num_b = goal % 5;
+
+            return small >= num_b;
+        }
+
+        return false;
+    }
 }

@@ -1,6 +1,10 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -338,5 +342,30 @@ public class Main {
         }
 
         return false;
+    }
+
+    // http://codingbat.com/prob/p256268
+    // https://techdevguide.withgoogle.com/paths/foundational/collapseduplicates-problem-fix/#!
+    public String collapseDuplicates(String a) {
+        int i = 0;
+        String result = "";
+        while (i < a.length()) {
+            char ch = a.charAt(i);
+            result += ch;
+
+            if (i == a.length() - 1) {
+                break;
+            }
+
+            while (a.charAt(i + 1) == ch) {
+                i++;
+
+                if (i == a.length() - 1) {
+                    break;
+                }
+            }
+            i++;
+        }
+        return result;
     }
 }

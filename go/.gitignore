@@ -1,6 +1,0 @@
-pkg/
-src/github.com/*
-src/golang.org/*
-
-!README.md
-!*.go

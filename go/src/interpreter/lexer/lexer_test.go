@@ -14,6 +14,17 @@ let add = fn(x, y) {
 };
 
 let result = add(five, ten);
+!-/*5;
+5 < 10 > 5;
+
+if (5 < 10) {
+	return true;
+} else {
+	return false;
+}
+
+10 == 10;
+10 != 9;
 `
 
 	tests := []struct {
@@ -58,6 +69,52 @@ let result = add(five, ten);
 		{",", token.COMMA},
 		{"ten", token.IDENTIFIER},
 		{")", token.RPAREN},
+		{";", token.SEMICOLON},
+
+		{"!", token.BANG},
+		{"-", token.MINUS},
+		{"/", token.SLASH},
+		{"*", token.ASTERISK},
+		{"5", token.INT},
+		{";", token.SEMICOLON},
+
+		{"5", token.INT},
+		{"<", token.LT},
+		{"10", token.INT},
+		{">", token.GT},
+		{"5", token.INT},
+		{";", token.SEMICOLON},
+
+		{"if", token.IF},
+		{"(", token.LPAREN},
+		{"5", token.INT},
+		{"<", token.LT},
+		{"10", token.INT},
+		{")", token.RPAREN},
+		{"{", token.LBRACE},
+
+		{"return", token.RETURN},
+		{"true", token.TRUE},
+		{";", token.SEMICOLON},
+
+		{"}", token.RBRACE},
+		{"else", token.ELSE},
+		{"{", token.LBRACE},
+
+		{"return", token.RETURN},
+		{"false", token.FALSE},
+		{";", token.SEMICOLON},
+
+		{"}", token.RBRACE},
+
+		{"10", token.INT},
+		{"==", token.EQUAL},
+		{"10", token.INT},
+		{";", token.SEMICOLON},
+
+		{"10", token.INT},
+		{"!=", token.NOT_EQUAL},
+		{"9", token.INT},
 		{";", token.SEMICOLON},
 	}
 

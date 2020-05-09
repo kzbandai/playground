@@ -1,0 +1,1 @@
+- learning log by https://github.com/azu/promises-book

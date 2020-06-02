@@ -61,8 +61,7 @@
 #include <condition_variable>
 #include <future>
 
-// compile error if commented out
-//#include <cstdalign>
+using namespace std::literals;
 
 // compile error if commented out
-//using namespace std::literals;
+//#include <cstdalign>

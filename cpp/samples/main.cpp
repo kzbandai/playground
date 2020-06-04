@@ -81,26 +81,39 @@ int main() {
     std::cout << std::boolalpha;
     std::cout << true << "\n"s << false << "\n";
     std::cout << std::noboolalpha;
-    std::cout << true << "\n"s << false << "\n"
+    std::cout << true << "\n"s << false << "\n";
 
     // 短絡評価
-    auto a = []() {
-        std::cout << "a\n"s;
+    auto aa = []() {
+        std::cout << "aa\n"s;
         return false;
     };
-    auto b = []() {
-        std::cout << "b\n"s;
+    auto bb = []() {
+        std::cout << "bb\n"s;
         return true;
     };
 
-    bool c = a() && b();
-    std::cout << std::boolalpha << c;;
+    bool cc = aa() && bb();
+    std::cout << std::boolalpha << cc;
 
     // boolのint変換
     // 1
     int True = true;
     // 0
     int False = false;
+    print(True);
+    print(False);
+
+    // cast
+    int xx = 123;
+    print(xx);
+    short yy = static_cast<short>(xx);
+    print(yy);
+
+    auto size_print = [](std::size_t s) { std::cout << s << "\n"s; };
+    size_print(sizeof(float));
+    size_print(sizeof(double));
+    size_print(sizeof(long double));
 }
 
 // 関数、返り値の型を文頭で宣言する

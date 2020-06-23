@@ -114,6 +114,98 @@ int main() {
     size_print(sizeof(float));
     size_print(sizeof(double));
     size_print(sizeof(long double));
+
+    std::cout << "short: "s << std::numeric_limits<short>::max() << "\n"s
+              << "int: "s << std::numeric_limits<int>::max() << "\n";
+
+    std::vector<int> v = {1, 2, 3, 4, 5};
+    std::for_each(std::begin(v), std::end(v), [](auto value) {
+        std::cout << value << "\n";
+    });
+
+
+    // コピーキャプチャー
+    int xyz = 0;
+    [=] { return xyz; }();
+
+    // リファレンスキャプチャー
+    int xyy = 0;
+    auto ref = [&] { return ++xyy; };
+    ref();
+    ref();
+    ref(); // xyy = 3
+    print(xyy);
+
+    // クラス
+    struct fractional {
+        int num;
+        int denom;
+
+
+        // コンストラクター
+        fractional()
+                : fractional(10) {
+            std::cout << "delegating constructor\n";
+        }
+
+        // デリゲートコンストラクター
+        fractional(int num)
+                : num(num), denom(5) {
+            std::cout << "constructor\n";
+        }
+
+        // デコンストラクター
+        ~fractional() {
+            std::cout << "destructed: "s << num << "\n"s;
+        }
+
+        // メンバー関数
+        double value() {
+            return static_cast<double>(num) / static_cast<double>(denom);
+        }
+    };
+
+    fractional fra{};
+    std::cout << fra.value() << "\n"s;
+
+    struct fractional2 {
+        int num;
+        int denom;
+
+        fractional2(int num, int denom)
+                : num(num), denom(denom) {
+        }
+
+        // 演算子のオーバーロード
+        // 演算子のオーバーロードでは、少なくとも1つのユーザー定義された型がなければならない
+        // リファレンスを渡しているので、あとから値は変えることが出来るが、通常constで値を固定する
+        fractional2 operator+(fractional2 const &l) {
+            // 分母が同じなら
+            if (l.denom == denom)
+                // 単に分子を足す
+                return fractional2{l.num + num, l.denom};
+            else
+                // 分母を合わせて分子を足す
+                return fractional2{l.num * denom + num * l.denom, l.denom * denom};
+        }
+
+        double value_num() {
+            return static_cast<double>(num);
+        }
+
+        double value_denom() {
+            return static_cast<double>(denom);
+        }
+    };
+
+    fractional2 ff1{1, 2};
+    fractional2 ff2{1, 3};
+    auto ff3 = ff1 + ff2;
+    print(ff3.value_num());
+    print(ff3.value_denom());
+
+    // 末尾
+    std::cout << "\n"s;
 }
 
 // 関数、返り値の型を文頭で宣言する
@@ -128,3 +220,14 @@ void f() {
 
 // autoも使える
 auto d() { return ""s; }
+
+// これは関数ではなく、ラムダ式
+// []  // ラムダ導入子
+// ()  // 引数リスト
+// {}  // 複合文
+// ;   // 文末
+// auto lambda_expression = [](auto value) { return value; };
+
+// C++はもともとC言語にクラスの機能を追加することを目的とした言語
+
+// クラスの中の変数は「データメンバー」といい、厳密には変数ではない
